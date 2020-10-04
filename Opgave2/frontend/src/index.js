@@ -78,6 +78,12 @@ document.getElementById("submit").addEventListener("click", (event) =>{
   }
   userFacade.addUser(newUser)
   .then(makeTable())
+  .catch(err =>{
+    if(err.status){
+      err.fullError.then(e=> alert(e.msg))
+    }
+    else{console.log("Network error"); }
+});
 });
 
 
